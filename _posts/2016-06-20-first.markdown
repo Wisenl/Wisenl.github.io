@@ -1,0 +1,97 @@
+---
+layout:     post
+title:      "First"
+subtitle:   "不适合人类阅读，非常水的自我笔记"
+date:       2016-06-20
+author:     "Wisenl"
+header-img: "img/post-bg-unix-linux.jpg"
+tags:
+    - OS
+    - Unix
+    - Linux
+---
+
+# 在此处输入标题
+
+标签（空格分隔）： 未分类
+
+
+在此输入正文
+
+# 这是一级标题
+
+## second
+
+## 二级
+
+### 三级
+
+###### 等等
+
+# 有序列表：
+4. 一级
+4. 二级
+4. 三级
+
+# 无序列表：
+* 嘻嘻
+* 嘿嘿
+* 哈哈
+
+# 引用
+>真·引用
+
+# 图片链接
+---
+![GitHub](https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding")
+
+<img src="https://www.zybuluo.com/static/img/logo.png" alt="github" title="Github,social coding" width="20" height="20" />
+<img src="" width="50%" height="50%">
+![GitHub](https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding")
+
+# 表格？
+
+
+
+|111|qqq|
+|---|222|
+
+# 代码
+```html
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
+        </div>
+```
+```js
+	if ( typeof module === "object" && typeof module.exports === "object" ) {
+		// For CommonJS and CommonJS-like environments where a proper `window`
+		// is present, execute the factory and get jQuery.
+		// For environments that do not have a `window` with a `document`
+		module.exports = global.document ?
+			factory( global, true ) :
+			function( w ) {
+				if ( !w.document ) {
+					throw new Error( "jQuery requires a window with a document" );
+				}
+				return factory( w );
+			};
+	} else {
+		factory( global );
+	}
+```
+
+
+
+
+
+
+
+
+
+
