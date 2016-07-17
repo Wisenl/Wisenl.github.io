@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82e8c6c0-dfe7-4958-a7fd-300a16a878f8" name="Default" comment="" />
+    <list default="true" id="82e8c6c0-dfe7-4958-a7fd-300a16a878f8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/clock.html" afterPath="$PROJECT_DIR$/demo/clock.html" />
+    </list>
     <ignored path="wisenl.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,8 +46,8 @@
       <file leaf-file-name="clock.html" pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/Desktop/十万行代码练习/JS高级/JS综合应用/秒表/clock.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12865497">
-              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.055137843">
+              <caret line="3" column="66" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -642,8 +644,8 @@
     </entry>
     <entry file="file://$USER_HOME$/Desktop/十万行代码练习/JS高级/JS综合应用/秒表/clock.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12865497">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.055137843">
+          <caret line="3" column="66" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="66" />
           <folding />
         </state>
       </provider>
