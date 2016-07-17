@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缓冲运动</title>
+    <style>
+        body {height: 2000px;}
+        #div {width: 100px; height: 100px; position: absolute; background: orange;right: 0;}
+    </style>
+    <script>
+        window.onload = function (){
+            var oDiv = document.getElementById('div');
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            div.style.top = scrollTop + (document.documentElement.clientHeight - oDiv.offsetHeight)/2 +'px';
+
+
+
+            window.onscroll = function () {
+                scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                var t = scrollTop + (document.documentElement.clientHeight - oDiv.offsetHeight)/2 ;
+
+                starMove(parseInt(t));
+
+            };
+
+            var timer = null;
+            function starMove(target){
+                clearInterval(timer);
+
+                timer = setInterval(function(){
+                    var iSpeed = (target - oDiv.offsetTop)/8;
+                    iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                    if(oDiv.offsetTop == target){
+                        clearInterval(timer);
+                    }else {
+                        oDiv.style.top = oDiv.offsetTop + iSpeed +'px';
+                    }
+                },33)
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div"></div>
+</body>
+</html>
