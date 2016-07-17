@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82e8c6c0-dfe7-4958-a7fd-300a16a878f8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2016-06-20-first.markdown" afterPath="$PROJECT_DIR$/_posts/2016-06-20-first.markdown" />
-    </list>
+    <list default="true" id="82e8c6c0-dfe7-4958-a7fd-300a16a878f8" name="Default" comment="" />
     <ignored path="wisenl.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -310,7 +308,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1592" y="-8" width="916" height="1416" extended-state="6" />
+    <frame x="1592" y="-8" width="916" height="1416" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46697038" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
