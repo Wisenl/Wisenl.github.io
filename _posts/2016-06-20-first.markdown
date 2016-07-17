@@ -58,32 +58,117 @@ tags:
 
 # 代码
 ```html
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
-        </div>
+<body>
+    <div id="clock">
+        <p class="mini"><span>00</span>:<span>00</span>.<span>00</span></p>
+        <p class="normal"><span>00</span>:<span>00</span>.<span>00</span></p>
+    </div>
+    <div id="controller">
+        <div id="reset_button">Count</div>
+        <div id="start_button">Star</div>
+    </div>
+    <div id="block">
+        <ul id="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+</body>
 ```
 ```js
-	if ( typeof module === "object" && typeof module.exports === "object" ) {
-		// For CommonJS and CommonJS-like environments where a proper `window`
-		// is present, execute the factory and get jQuery.
-		// For environments that do not have a `window` with a `document`
-		module.exports = global.document ?
-			factory( global, true ) :
-			function( w ) {
-				if ( !w.document ) {
-					throw new Error( "jQuery requires a window with a document" );
-				}
-				return factory( w );
-			};
-	} else {
-		factory( global );
-	}
+window.onload = function(){
+            var MiniTimer = document.getElementsByClassName('mini')[0];
+            var NormalTimer = document.getElementsByClassName('normal')[0];
+            var NormalMin = NormalTimer.getElementsByTagName('span')[0];
+            var NormalSec = NormalTimer.getElementsByTagName('span')[1];
+            var NormalMsec = NormalTimer.getElementsByTagName('span')[2];
+
+            var ButtonStart = document.getElementById('start_button');
+            var ButtonReset = document.getElementById('reset_button');
+
+            var List = document.getElementById('list');
+            var l1 = List.getElementsByTagName('li')[0];
+
+            var timeBegin = 0;
+           var timer;
+            var temp;
+            var StarStatus = false;
+            var ResetStatus = false;
+            ButtonStart.onclick = function(){
+                if(!StarStatus&&!ResetStatus){
+                    var Begin = new Date();
+                    timeBegin = Begin.getTime();
+                    timer = setInterval(star,10);
+                    ButtonStart.innerHTML = "Stop";
+                    ButtonStart.style = "color: red";
+                }else if(StarStatus&&!ResetStatus){
+                    clearInterval(timer);
+                    ResetStatus = true;
+                    temp = new Date().getTime();
+                    ButtonStart.innerHTML = "Start";
+                    ButtonStart.style = "color: green;";
+                    ButtonReset.innerHTML = "Reset";
+                    ButtonReset.style = "color: blue;";
+                }else if(!StarStatus&&ResetStatus){
+                    timer = setInterval(star,10);
+                    timeBegin = timeBegin + new Date().getTime() - temp;
+                    ResetStatus = !ResetStatus;
+                    ButtonStart.innerHTML = "Stop";
+                    ButtonStart.style = "color: red";
+                }
+                StarStatus = !StarStatus;
+            };
+
+            ButtonReset.onclick = function () {
+                if(timeBegin == 0){
+
+                }else if(!StarStatus && !ResetStatus){
+
+                }else if(!StarStatus && ResetStatus){
+                    temp = 0;
+                    timeBegin = 0;
+                    NormalMsec.innerHTML = "00";
+                    NormalSec.innerHTML = "00";
+                    NormalMin.innerHTML = "00";
+                    ButtonReset.innerHTML = "Count";
+                    l1.innerHTML = "1";
+                }else if(StarStatus && !ResetStatus){
+                    l1.innerHTML = NormalMin.innerHTML + ":" + NormalSec.innerHTML + "." + NormalMsec.innerHTML;
+                }
+            }
+
+
+////
+            function star(){
+                var sometime = new Date();
+               var T = sometime.getTime() - timeBegin  ;
+                var num1 = parseInt(T%1000/10);
+                var num2 = parseInt(T%60000/1000);
+                var num3 = parseInt(T%3600000/60000);
+                NormalMsec.innerHTML = setDigits(num1,2);
+                NormalSec.innerHTML = setDigits(num2,2);
+                NormalMin.innerHTML = setDigits(num3,2);
+            }
+
+///
+            function setDigits(num,n){
+                var theNumber = '' + num;
+                while (theNumber.length < n){
+                    theNumber = '0' + theNumber;
+                }
+                return theNumber;
+            }
+            document.onmousemove = function(){
+                return false;
+            }
+            document.onselectstart = function(){
+                return false;
+            }
+
+
+        }
 ```
 
 
