@@ -162,6 +162,10 @@ opacity: 1;
 .num_list7 li img {
 	display: block; margin: auto;
 }
+.num_list7 li p {
+	word-break:keep-all;/* 不换行 */
+    	white-space:nowrap;/* 不换行 */
+}
 
 ul.dots li{
 	height: 3px;width: 3px;background: #ddd; margin: 5px auto 0; list-style: none; opacity: 0.3;
