@@ -101,7 +101,7 @@ opacity: 1;
 
 
 .num_list1 li{
-	display: inline-block;width: auto;text-align: center; margin-right: 15px;
+	display: inline-block;width: 35%;text-align: center; margin-right: 15px; margin-top: 10%
 }
 .num_list1 li img {
 	display: block; margin: auto;
@@ -111,20 +111,20 @@ opacity: 1;
 }
 
 .num_list2 li{
-	display: inline-block;width: 110px;text-align: center; margin-right: 66px;
+	display: inline-block;width: 35%;text-align: center; margin-right: 10%;
 }
 .num_list2 li span{
-	display:block; margin-top: 5px; margin-bottom: 30px; font-size: 0.875rem;
+	display:block; margin-top: 8%; margin-bottom: 18%; font-size: 0.875rem;
 }
 .num_list2 li img {
 	display: block; margin: auto;
 }
 
 .num_list4 li{
-	display: inline-block;width: 95px;text-align: center; margin-bottom: 40px;
+	display: inline-block;width: 95px;text-align: center; margin-bottom: 9%;
 }
 .num_list4 li span{
-	display:block; margin-top: 25px;
+	display:block; margin-top: 5%;
 }
 .num_list4 li img {
 	display: block; margin: auto;
@@ -139,18 +139,19 @@ opacity: 1;
 .num_list5 li img {
 	display: block; margin: auto;
 }
+
 .num_list6 li{
 	display: inline-block; width: 95px;text-align: center; margin-right: 25px; margin-top: 12%;
 }
 .num_list6 li span{
-	display:block; margin-top: 11%; margin-bottom: 15%;
+	display:block; margin-top: 11%; margin-bottom: 13%;
 }
 .num_list6 li img {
 	display: block; margin: auto;
 }
 
 
-.num_list7 li{
+/*.num_list7 li{
 	display: inline-block; width: 97px; text-align: center; margin: 0 auto 25px;  vertical-align: 50%;
 }
 .num_list7 li span {
@@ -163,9 +164,9 @@ opacity: 1;
 	display: block; margin: auto;
 }
 .num_list7 li p {
-	word-break:keep-all;/* 不换行 */
-    	white-space:nowrap;/* 不换行 */
-}
+	word-break:keep-all;
+    white-space:nowrap;
+}*/
 
 ul.dots li{
 	height: 3px;width: 3px;background: #ddd; margin: 5px auto 0; list-style: none; opacity: 0.3;
