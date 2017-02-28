@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "胡思乱想"
+title:      "Random Thoughts"
 subtitle:   “思考亦是一种自由”
 date:       2017-01-06
 author:     “Wisenl”
@@ -9,9 +9,7 @@ tags:
     - 思想荒岛
 ---
 
-
-
-
+> "It's hard to think for me !"
 
 这个世界发生的一切，像是一场浩劫过后的狂欢。我缩在角落神情黯然，仿佛不属于幸存者中的一员。
 
