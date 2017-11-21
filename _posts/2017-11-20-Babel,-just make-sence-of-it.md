@@ -4,7 +4,7 @@ title:      "Babel, just make sence of it!"
 subtitle:   “Babel学习之弄懂就行”
 date:       2017-11-20
 author:     “Wisenl”
-header-img: "img/2017-11-20.jpg"
+header-img: "img/2017-11-20.png"
 tags:
     - 技术
     - 工具
