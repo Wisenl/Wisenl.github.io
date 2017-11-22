@@ -28,11 +28,11 @@ Babel，用于编写下一代的 JavaScript 的编译器。据说，它承担着
 
 我们可以把这串列表划分成不同的类型来了解。
 
-1. babel-cli 
+1. babel-cli
 2. babel-core
 3. babel-generator
 4. babel-helper-xxxx ( babel-helpers )
-5. babel-node 
+5. babel-node
 6. babel-plugin-xxxx
 7. babel-polyfill
 8. babel-preset-xxxx
@@ -50,7 +50,7 @@ Babel，用于编写下一代的 JavaScript 的编译器。据说，它承担着
 
 * Core：babel-core, babylon, babel-traverse, generator
 * Plugins : babel-plugin-xxxx
-* Preset： babel-preset 
+* Preset： babel-preset
 * Other：babel-cli, Babel-types, babel-polyfill, babel-runtime, babel-register, babel-template, babel-helpers
 
 
@@ -129,14 +129,14 @@ babel-preset-react 包含了babel-preset-flow 和 转译jsx语法的相关插件
   babel es6File.js --out-file newEs5File.js
   ```
 
-  给你文档 —> [如何使用CLI工具](https://babeljs.cn/docs/usage/cli) 
+  给你文档 —> [如何使用CLI工具](https://babeljs.cn/docs/usage/cli)
 
 * **babel-node**
 
   babel-node 是 babel 提供给 node 环境使用的工具，主要用来在开发时方便执行一些脚本，用它就能执行一些node下不支持的ES6语法。如：
 
   ```shell
-  node_modules/.bin/babel-node --presets env 
+  node_modules/.bin/babel-node --presets env
   >3**3
   27
   ```
@@ -168,7 +168,7 @@ babel-preset-react 包含了babel-preset-flow 和 转译jsx语法的相关插件
 
 ## .babelrc 配置文件
 
-```Json
+```js
 {
   "presets": [
     ["env",{
@@ -190,4 +190,3 @@ babel-preset-react 包含了babel-preset-flow 和 转译jsx语法的相关插件
   ]
 }
 ```
-
