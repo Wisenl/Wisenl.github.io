@@ -150,7 +150,7 @@ babel-preset-react 包含了babel-preset-flow 和 转译jsx语法的相关插件
 
   首先我们要知道Babel实现编译的功能主要分为两种（常称为babel 和 polyfill）：一种是通过babel-core 实现的语法编译功能，如箭头函数；另一种是内建的新对象及其API，如Set，Map，object.asign() ，generator等，这些都是通过babel-runtime中的core-js和 regenerator 来实现的。而babel-runtime 只是对这两个库进行了引入导出。
 
-  core-js 和 regenerator 把polyfill都集合起来，可是用的时候未必会全都用到，不利于优化。于是就有了babel-plugin-transform-runtime，它会分析AST中是否引用到babel-runtime 中的polyfill，引用了就在此模块中插入需要的功能代码。
+  core-js 和 regenerator 把polyfill都集合起来，可是用的时候未必会全都用到，不利于优化。于是就有了babel-plugin-transform-runtime，它会分析AST中是否引用到babel-runtime 中的polyfill，引用了就在此模块中插入需要的功能代码。可见transform-runtime依赖于babel-runtime，所以一般我们都是使用 transform-runtime 而不是用babel-runtime。
 
 * **babel-polyfill**
 
@@ -164,7 +164,7 @@ babel-preset-react 包含了babel-preset-flow 和 转译jsx语法的相关插件
 
 * **babel-register**
 
-  这个就是babel-node 实现它脚本编译功能的包。babel-node 在执行脚本文件的时候，同时也会用babel编译它所require的文件，而且不需要输出文件就能实时编译。
+  这个就是babel-node 实现它脚本编译功能的包。如果js文件中引入 babel-register，node 在执行该文件的时候，会用babel编译它所require的文件（但是该js文件不会被编译），而且不需要输出文件就能实时编译。
 
 ## .babelrc 配置文件
 
