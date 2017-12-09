@@ -1,0 +1,33 @@
+class W_Promise {
+    constructor(executor) {
+        this.status = 'padding'
+        this.resolve = (val) => {
+            setTimeout(() => {
+                this.status = 'resolved'
+                this.resolved(val)
+                console.log('val', val)
+            }, 0)
+        }
+        this.reject = (val) => {
+            setTimeout(() => {
+                this.status = 'rejected'
+                this.rejected(val)
+            }, 0)
+        }
+        executor(this.resolve, this.reject)
+    }
+
+
+    then(resolved, rejected) {
+        this.resolved = (val) => {
+            console.log('val2', val)
+            resolved(val)
+        }
+        this.rejected = (val) => {
+            rejected(val)
+
+        }
+    }
+}
+
+exports.w_promise = W_Promise
