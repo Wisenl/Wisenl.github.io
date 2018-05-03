@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ubuntu系统的安装与优化 | Wisenl Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装Ubuntu参考教程 1. Win下的准备： 下载.iso文件 UltraISO下载 制作U盘启动器 修改BIOS设置为U盘启动：HP电脑开机按F9">
+<meta name="keywords" content="Ubuntu,OS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu系统的安装与优化">
+<meta property="og:url" content="http://wisenl.github.io/2018/04/24/2014-09-25-how-to-install-and-config-ubuntu/index.html">
+<meta property="og:site_name" content="Wisenl Blog">
+<meta property="og:description" content="安装Ubuntu参考教程 1. Win下的准备： 下载.iso文件 UltraISO下载 制作U盘启动器 修改BIOS设置为U盘启动：HP电脑开机按F9">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="http://o7mw3gkkh.qnssl.com//images/2016/1487949759355.png">
+<meta property="og:updated_time" content="2018-04-24T08:43:19.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu系统的安装与优化">
+<meta name="twitter:description" content="安装Ubuntu参考教程 1. Win下的准备： 下载.iso文件 UltraISO下载 制作U盘启动器 修改BIOS设置为U盘启动：HP电脑开机按F9">
+<meta name="twitter:image" content="http://o7mw3gkkh.qnssl.com//images/2016/1487949759355.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Wisenl Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <!--<div class="overlay" style="background: #f3d6a9; opacity: 1">-->
+    <!--<div style="height: 250px; background: #caf5af;"></div>-->
+<!--</div>-->
+<div class="overlay" style="background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%); opacity: 1">
+    <!--<div style="height: 250px; background: #caf5af;"></div>-->
+</div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar-wisenl.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Wisenl</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Think more, do better</p>
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <p style="padding-bottom: 10px;">最后不知天在水，满船清梦压星河</p>
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl google" target="_blank" href="https://plus.google.com/u/0/101401508959857817842" title="google">google</a>
+                            
+                                <a class="fl twitter" target="_blank" href="https://twitter.com/wisen_Liao" title="twitter">twitter</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wisenl" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Wisenl</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a class="mobile-profilepic">
+                
+                    <img lazy-src="/img/avatar-wisenl.jpg" class="js-avatar">
+                
+            </a>
+            <script>
+                var el = document.querySelector('.mobile-profilepic')
+                var timer
+                el.onclick = function() {
+                  el.classList.add('active')
+                  clearTimeout(timer)
+                  timer = setTimeout(function() {
+                    el.classList.remove('active')
+                  }, 1000)
+                }
+            </script>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Wisenl</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Think more, do better</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <p style="padding-bottom: 10px; text-align: center; color: #fff">最后不知天在水，满船清梦压星河</p>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="google" target="_blank" href="https://plus.google.com/u/0/101401508959857817842" title="google">google</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/wisen_Liao" title="twitter">twitter</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/wisenl" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2014-09-25-how-to-install-and-config-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/24/2014-09-25-how-to-install-and-config-ubuntu/" class="article-date">
+      <time datetime="2018-04-24T08:43:19.692Z" itemprop="datePublished">2018-04-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ubuntu系统的安装与优化
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OS/">OS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="安装Ubuntu"><a href="#安装Ubuntu" class="headerlink" title="安装Ubuntu"></a>安装Ubuntu</h2><p><a href="http://jingyan.baidu.com/article/ff42efa9423991c19e22020d.html" target="_blank" rel="noopener">参考教程</a></p>
+<h3 id="1-Win下的准备："><a href="#1-Win下的准备：" class="headerlink" title="1. Win下的准备："></a>1. Win下的准备：</h3><ul>
+<li><a href="http://www.ubuntu.com/download/desktop" target="_blank" rel="noopener">下载.iso文件</a></li>
+<li><a href="http://www.baidu.com/s?&amp;wd=UltraISO" target="_blank" rel="noopener">UltraISO下载</a></li>
+<li><a href="http://jingyan.baidu.com/article/d169e186800f02436711d87b.html" target="_blank" rel="noopener">制作U盘启动器</a></li>
+<li><p>修改BIOS设置为U盘启动：HP电脑开机按F9</p>
+<a id="more"></a>
+<h3 id="2-安装中的分区问题："><a href="#2-安装中的分区问题：" class="headerlink" title="2. 安装中的分区问题："></a>2. 安装中的分区问题：</h3></li>
+<li><p>swap: 交换空间，类似于Win下的虚拟空间。（内存够大也许不需要）</p>
+</li>
+<li>/: 根目录，系统的安装目录，相当于C盘，重装时数据丢失。</li>
+<li>/boot是开机引导系统用的，建立此分区可使Win引导Ubuntu，否则默认Ubuntu引导Win。</li>
+<li>/home是个人资料文件夹（下载/音乐/文档）这些，重装时数据保留。</li>
+</ul>
+<h3 id="3-安装过程中下载软件更新和安装软件部分可以skip"><a href="#3-安装过程中下载软件更新和安装软件部分可以skip" class="headerlink" title="3. 安装过程中下载软件更新和安装软件部分可以skip"></a>3. 安装过程中下载软件更新和安装软件部分可以skip</h3><h2 id="Ubuntu软件"><a href="#Ubuntu软件" class="headerlink" title="Ubuntu软件"></a>Ubuntu软件</h2><h3 id="1-简化安装：Synaptic-新立得"><a href="#1-简化安装：Synaptic-新立得" class="headerlink" title="1. 简化安装：Synaptic (新立得)"></a>1. 简化安装：Synaptic (新立得)</h3><ul>
+<li>是Ubuntu的包管理工具apt的图形化前端。</li>
+<li>集成了很多一键安装的软件包，eg: LAMP 解决包依赖的问题。</li>
+<li>这里可以先在系统Software Center内安装这个软件</li>
+<li>tips: 注意此软件打开时terminal中无法使用apt-get</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)</span><br><span class="line">E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?</span><br></pre></td></tr></table></figure>
+<h3 id="2-词典：Youdao-Stardict-GoldenDict"><a href="#2-词典：Youdao-Stardict-GoldenDict" class="headerlink" title="2. 词典：Youdao/Stardict/GoldenDict"></a>2. 词典：Youdao/Stardict/GoldenDict</h3><ul>
+<li><p>星际词王最容易安装和使用。</p>
+</li>
+<li><p><a href="https://www.google.com/search?q=Ubuntu-youdao" target="_blank" rel="noopener">Ubuntu-youdao</a>安装不上。</p>
+</li>
+<li><p><a href="https://www.google.com/search?q=GoldenDict" target="_blank" rel="noopener">GoldenDict</a>配置太麻烦。</p>
+</li>
+</ul>
+<h3 id="3-输入法：搜狗-Google输入法（Fcitx系列）"><a href="#3-输入法：搜狗-Google输入法（Fcitx系列）" class="headerlink" title="3. 输入法：搜狗/Google输入法（Fcitx系列）"></a>3. 输入法：搜狗/Google输入法（Fcitx系列）</h3><ul>
+<li>在synaptic中搜索<em>googlepinyin</em>即可安装</li>
+</ul>
+<h3 id="4-浏览器：Firefox-Chromium"><a href="#4-浏览器：Firefox-Chromium" class="headerlink" title="4. 浏览器：Firefox/Chromium"></a>4. 浏览器：Firefox/Chromium</h3><ul>
+<li><p>还未安装Chromium时使用火狐，火狐的flash插件可以在软件商店中心下载安装解决</p>
+</li>
+<li><p>解决google无法访问 <a href="http://www.zhihu.com/question/21245060/answer/27201877" target="_blank" rel="noopener">参考知乎</a></p>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>修改DNS/host：更改系统文件，可能出现莫名奇妙的问题</li>
+<li>GoAgent + <a href="http://www.baidu.com/s?&amp;wd=SwitchySharp" target="_blank" rel="noopener">SwitchySharp</a>：GoAgent不稳定</li>
+<li><a href="http://botey.cn/UPLOAD/All_Files/Chrome_Red.rar" target="_blank" rel="noopener">红杏</a>：付费，但是基础功能提高Google的访问，足以。<br>tips：此时都不能从Google应用商店下载，只能先下载再拖入chromium安装</li>
+</ol>
+</blockquote>
+<ul>
+<li>解决flash<br>Pepper Flash Player，一个来自Google更安全更稳定的版本的Flash Player</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install pepperflashplugin-nonfree</span><br><span class="line">sudo update-pepperflashplugin-nonfree --install</span><br></pre></td></tr></table></figure>
+<h3 id="5-系统优化：Ubuntu-Tweak"><a href="#5-系统优化：Ubuntu-Tweak" class="headerlink" title="5. 系统优化：Ubuntu Tweak"></a>5. 系统优化：<a href="http://ubuntu-tweak.com/" target="_blank" rel="noopener">Ubuntu Tweak</a></h3><ul>
+<li><p>国人TualatriX开发的ubuntu平台下的优化大师，简单易用</p>
+</li>
+<li><p>可以设置字体/清理垃圾/查看软件</p>
+</li>
+</ul>
+<h3 id="6-下拉式终端：「Guake-Terminal」"><a href="#6-下拉式终端：「Guake-Terminal」" class="headerlink" title="6. 下拉式终端：「Guake Terminal」"></a>6. 下拉式终端：「<a href="https://github.com/Guake/guake/" target="_blank" rel="noopener">Guake Terminal</a>」</h3><ul>
+<li><code>sudo apt-get build-dep guake</code></li>
+</ul>
+<h2 id="界面美化-优化"><a href="#界面美化-优化" class="headerlink" title="界面美化/优化"></a>界面美化/优化</h2><h3 id="1-鼠标指针闪烁"><a href="#1-鼠标指针闪烁" class="headerlink" title="1. 鼠标指针闪烁"></a>1. 鼠标指针闪烁</h3><ul>
+<li><a href="http://jingyan.baidu.com/article/3aed632e78668970108091c0.html" target="_blank" rel="noopener">关闭 “未知显示器”</a></li>
+</ul>
+<h3 id="2-在当前目录打开terminal"><a href="#2-在当前目录打开terminal" class="headerlink" title="2. 在当前目录打开terminal"></a>2. 在当前目录打开terminal</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nautilus-open-terminal</span><br><span class="line"><span class="comment">#reload dir</span></span><br><span class="line">nautilus -q</span><br></pre></td></tr></table></figure>
+<h3 id="3-字体-语言"><a href="#3-字体-语言" class="headerlink" title="3. 字体/语言"></a>3. 字体/语言</h3><ul>
+<li><p>系统语言使用English，默认字体看起来就很舒服</p>
+</li>
+<li><p>浏览器中的字体实在太难看，下载<a href="http://www.baidu.com/s?&amp;wd=微软雅黑字体" target="_blank" rel="noopener">微软雅黑字体</a> -&gt; 在浏览器中选择相应字体+chrome扩展</p>
+</li>
+</ul>
+<h3 id="4-使用开源字体库文泉驿的微黑字体"><a href="#4-使用开源字体库文泉驿的微黑字体" class="headerlink" title="4. 使用开源字体库文泉驿的微黑字体"></a>4. 使用开源字体库文泉驿的微黑字体</h3><p>1) 安装文泉驿微黑字体库</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ttf-wqy-microhei</span><br></pre></td></tr></table></figure>
+<p>2) 下载安装<a href="http://ubuntu-tweak.com/" target="_blank" rel="noopener">Ubuntu Tweak</a></p>
+<p>原系统设置中没有找到修改字体的地方，使用Ubuntu Tweak：调整－&gt;字库中，将默认字体、桌面字体等做修改</p>
+<p><img src="//o7mw3gkkh.qnssl.com//images/2016/1487949759355.png" alt=""></p>
+<p>3) 进一步确认并修改字体配置文件</p>
+<blockquote>
+<ul>
+<li>通常Ubuntu的字体文件存放在/usr/share/fonts下面，字体配置配置文件放在/etc/fonts下面</li>
+<li>Ubuntu 对中文字体的控制集中在一个文件/etc/fonts/conf.d/69-language-selector-zh-cn.conf</li>
+<li>编辑文件：<code>sudo gedit /etc/fonts/conf.d/69-language-selector-zh-cn.conf</code></li>
+</ul>
+</blockquote>
+<p>修改如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE fontconfig SYSTEM "fonts.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fontconfig</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">match</span> <span class="attr">target</span>=<span class="string">"pattern"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">test</span> <span class="attr">name</span>=<span class="string">"lang"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>zh-cn<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">test</span> <span class="attr">qual</span>=<span class="string">"any"</span> <span class="attr">name</span>=<span class="string">"family"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>serif<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">edit</span> <span class="attr">name</span>=<span class="string">"family"</span> <span class="attr">mode</span>=<span class="string">"prepend"</span> <span class="attr">binding</span>=<span class="string">"strong"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>WenQuanYi Micro Hei<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL UMing CN<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL UMing HK<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL New Sung<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>WenQuanYi Bitmap Song<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL UKai CN<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL ZenKai Uni<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>HYSong<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">edit</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">match</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">match</span> <span class="attr">target</span>=<span class="string">"pattern"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">test</span> <span class="attr">qual</span>=<span class="string">"any"</span> <span class="attr">name</span>=<span class="string">"family"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>sans-serif<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">test</span> <span class="attr">name</span>=<span class="string">"lang"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>zh-cn<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">edit</span> <span class="attr">name</span>=<span class="string">"family"</span> <span class="attr">mode</span>=<span class="string">"prepend"</span> <span class="attr">binding</span>=<span class="string">"strong"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>WenQuanYi Micro Hei<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>Droid Sans Fallback<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>HYSong<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL UMing CN<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL UMing HK<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL New Sung<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL UKai CN<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL ZenKai Uni<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">edit</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">match</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">match</span> <span class="attr">target</span>=<span class="string">"pattern"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">test</span> <span class="attr">qual</span>=<span class="string">"any"</span> <span class="attr">name</span>=<span class="string">"family"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>monospace<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">test</span> <span class="attr">name</span>=<span class="string">"lang"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>zh-cn<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">edit</span> <span class="attr">name</span>=<span class="string">"family"</span> <span class="attr">mode</span>=<span class="string">"prepend"</span> <span class="attr">binding</span>=<span class="string">"strong"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>WenQuanYi Micro Hei Mono<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>Droid Sans Fallback<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>HYSong<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL UMing CN<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL UMing HK<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL New Sung<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL UKai CN<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">string</span>&gt;</span>AR PL ZenKai Uni<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">edit</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">match</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">fontconfig</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/04/24/2014-09-25-how-to-install-and-config-ubuntu/">Ubuntu系统的安装与优化</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Wisenl 的个人博客">Wisenl</a></p>
+        <p><span>发布时间:</span>2018年04月24日 - 16时43分</p>
+        <p><span>最后更新:</span>2018年04月24日 - 16时43分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/04/24/2014-09-25-how-to-install-and-config-ubuntu/" title="Ubuntu系统的安装与优化">http://wisenl.github.io/2018/04/24/2014-09-25-how-to-install-and-config-ubuntu/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wisenl.github.io/2018/04/24/2014-09-25-how-to-install-and-config-ubuntu/　　作者: Wisenl" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/24/2015-09-05-periodically-anxiety/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">周期性大姨夫：一篇关于梦想和生活的咆哮</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Ubuntu"><span class="toc-number">1.</span> <span class="toc-text">安装Ubuntu</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Win下的准备："><span class="toc-number">1.1.</span> <span class="toc-text">1. Win下的准备：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-安装中的分区问题："><span class="toc-number">1.2.</span> <span class="toc-text">2. 安装中的分区问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-安装过程中下载软件更新和安装软件部分可以skip"><span class="toc-number">1.3.</span> <span class="toc-text">3. 安装过程中下载软件更新和安装软件部分可以skip</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu软件"><span class="toc-number">2.</span> <span class="toc-text">Ubuntu软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-简化安装：Synaptic-新立得"><span class="toc-number">2.1.</span> <span class="toc-text">1. 简化安装：Synaptic (新立得)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-词典：Youdao-Stardict-GoldenDict"><span class="toc-number">2.2.</span> <span class="toc-text">2. 词典：Youdao/Stardict/GoldenDict</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-输入法：搜狗-Google输入法（Fcitx系列）"><span class="toc-number">2.3.</span> <span class="toc-text">3. 输入法：搜狗/Google输入法（Fcitx系列）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-浏览器：Firefox-Chromium"><span class="toc-number">2.4.</span> <span class="toc-text">4. 浏览器：Firefox/Chromium</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-系统优化：Ubuntu-Tweak"><span class="toc-number">2.5.</span> <span class="toc-text">5. 系统优化：Ubuntu Tweak</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-下拉式终端：「Guake-Terminal」"><span class="toc-number">2.6.</span> <span class="toc-text">6. 下拉式终端：「Guake Terminal」</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#界面美化-优化"><span class="toc-number">3.</span> <span class="toc-text">界面美化/优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-鼠标指针闪烁"><span class="toc-number">3.1.</span> <span class="toc-text">1. 鼠标指针闪烁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在当前目录打开terminal"><span class="toc-number">3.2.</span> <span class="toc-text">2. 在当前目录打开terminal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-字体-语言"><span class="toc-number">3.3.</span> <span class="toc-text">3. 字体/语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-使用开源字体库文泉驿的微黑字体"><span class="toc-number">3.4.</span> <span class="toc-text">4. 使用开源字体库文泉驿的微黑字体</span></a></li></ol></li></ol>
+</div>
+<i type="button" id="tocButton" value="隐藏目录" class="fa fa-th-list"  title="点击按钮隐藏或者显示文章目录"></i>
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#toc").slideUp(320);
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox" style="display: none">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'luuman',
+      repo: 'luuman.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <!--<a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>-->
+        
+            <a href="/2018/04/24/2015-09-05-periodically-anxiety/" title="下一篇: 周期性大姨夫：一篇关于梦想和生活的咆哮">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/24/2014-09-25-how-to-install-and-config-ubuntu/">Ubuntu系统的安装与优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/24/2015-09-05-periodically-anxiety/">周期性大姨夫：一篇关于梦想和生活的咆哮</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/24/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <canvas id="space" style="position: fixed; left: 0; top: 0; bottom:0; right:0; z-index: -1;" ></canvas>
+      <div class="mobile-wrapper" style="position: fixed; left: 0; top: 0; bottom:0; right:0; z-index: -1;">
+        <ul class="bg-bubbles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <script>
+        (function () {
+          var ctx;
+          var backgroundColor1='rgb(214,228,240)';
+          var backgroundColor2='rgb(134,175,219)';
+          var elCanvas = document.getElementById('space');
+          var display = window.getComputedStyle(elCanvas)['display']
+          if (display === 'none') {
+            return
+          }
+          console.log('1111')
+          function paintCanvas() {
+            var grad = ctx.createLinearGradient(0,1000,1000,1000)
+            grad.addColorStop(0, backgroundColor1)
+            grad.addColorStop(1, backgroundColor2)
+            ctx.fillStyle = grad, ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+          }
+
+          function Particle() {
+            this.x = Math.random() * window.innerWidth, this.y = Math.random() * window.innerHeight, this.vx = -1 + 1 * Math.random(), this.vy = -1 + 1 * Math.random(), this.radius = particleRadius;
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            this.color = {r: color.r, g: color.g, b: color.b}, this.blur = Math.floor(-7 * Math.random() + 9) / 10, this.draw = function () {
+              ctx.fillStyle = "white", ctx.beginPath(), ctx.arc(this.x, this.y, this.radius, 0, Math.PI * this.radius, !1), ctx.fillStyle = "rgb(" + this.color.r + ", " + this.color.g + ", " + this.color.b + ")", ctx.fill()
+            }
+          }
+
+          function draw() {
+            paintCanvas();
+            for (var i = 0; i < particles.length; i++) {
+              var p = particles[i];
+
+              p.draw()
+            }
+            update()
+          }
+
+          function update() {
+            for (var i = 0; i < particles.length; i++) {
+              var p = particles[i];
+              p.x += p.vx, p.y += p.vy, p.x > window.innerWidth + p.radius ? p.x = p.radius : p.x < 0 - p.radius && (p.x = window.innerWidth - p.radius), p.y > window.innerHeight + p.radius ? p.y = p.radius : p.y < 0 - p.radius && (p.y = window.innerHeight - p.radius);
+              for (var j = i + 1; j < particles.length; j++) {
+                var p2 = particles[j];
+                distance(p, p2)
+              }
+            }
+          }
+
+          function distance(p1, p2) {
+            var dist, dx = p1.x - p2.x, dy = p1.y - p2.y, dist = Math.sqrt(dx * dx + dy * dy);
+            if (minDist >= dist) {
+              if (JSON.stringify(p1.color) != JSON.stringify(p2.color)) {
+                ctx.beginPath();
+                var gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+                gradient.addColorStop("0", "rgb(" + p1.color.r + ", " + p1.color.g + ", " + p1.color.b + ")"), gradient.addColorStop("1.0", "rgb(" + p2.color.r + ", " + p2.color.g + ", " + p2.color.b + ")"), ctx.strokeStyle = gradient, ctx.moveTo(p1.x, p1.y), ctx.lineTo(p2.x, p2.y), ctx.lineWidth = 2, ctx.stroke(), ctx.closePath()
+              }
+              var ax = dx / (1e3 * velocity), ay = dy / (1e3 * velocity);
+              p1.vx -= ax, p1.vy -= ay, p2.vx += ax, p2.vy += ay
+            }
+          }
+
+          function animloop() {
+            draw(), requestAnimFrame(animloop)
+          }
+          function init() {
+            elCanvas.width = window.innerWidth
+            elCanvas.height = window.innerHeight
+
+            ctx = document.getElementById('space').getContext("2d"), particleCount = 20, particles = [], particleRadius = 5, minDist = 100, velocity = 10, colors = [
+              {r: 117, g: 125, b: 175},
+              {r: 68, g: 73, b: 102},
+              {r: 248, g: 172, b: 19}
+            ];
+            for (var i = 0; particleCount > i; i++)
+              particles.push(new Particle);
+            animloop();
+          }
+
+          window.onload = function (e) {
+            init();
+          };
+
+
+          window.onresize = function (event) {
+            elCanvas.width = window.innerWidth
+            elCanvas.height = window.innerHeight
+          }
+
+          window.requestAnimFrame = (function () {
+            return  window.requestAnimationFrame ||
+              window.webkitRequestAnimationFrame ||
+              window.mozRequestAnimationFrame ||
+              function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+              };
+          })();
+        }(window));
+      </script>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Wisenl
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">ldct</a> by wisenl
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >总访问人数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读数: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
