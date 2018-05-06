@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>generator 学习 | Wisenl Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="对于异步的操作，最常规的写法是回调函数，但是深度回调会出现可怕的金字塔。那么，如何用更好的书写方式来避免金字塔，又或者说，怎么样把异步的代码写得看起来好像同步那样子呢？其中一种解决方案是promise模式，.then一直then下去。ok，从ES6开始，有两个新的特性，叫generator和yield，借助它们，我们能够更优雅地解决这个问题。">
+<meta name="keywords" content="技术,es6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="generator 学习">
+<meta property="og:url" content="http://wisenl.github.io/2017/10/28/2017-10-28-generator-学习/index.html">
+<meta property="og:site_name" content="Wisenl Blog">
+<meta property="og:description" content="对于异步的操作，最常规的写法是回调函数，但是深度回调会出现可怕的金字塔。那么，如何用更好的书写方式来避免金字塔，又或者说，怎么样把异步的代码写得看起来好像同步那样子呢？其中一种解决方案是promise模式，.then一直then下去。ok，从ES6开始，有两个新的特性，叫generator和yield，借助它们，我们能够更优雅地解决这个问题。">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-05-06T14:57:36.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="generator 学习">
+<meta name="twitter:description" content="对于异步的操作，最常规的写法是回调函数，但是深度回调会出现可怕的金字塔。那么，如何用更好的书写方式来避免金字塔，又或者说，怎么样把异步的代码写得看起来好像同步那样子呢？其中一种解决方案是promise模式，.then一直then下去。ok，从ES6开始，有两个新的特性，叫generator和yield，借助它们，我们能够更优雅地解决这个问题。">
+  
+    <link rel="alternative" href="/atom.xml" title="Wisenl Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <!--<div class="overlay" style="background: #f3d6a9; opacity: 1">-->
+    <!--<div style="height: 250px; background: #caf5af;"></div>-->
+<!--</div>-->
+<div class="overlay" style="background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%); opacity: 1">
+    <!--<div style="height: 250px; background: #caf5af;"></div>-->
+</div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar-wisenl.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Wisenl</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Think more, do better</p>
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <p style="padding-bottom: 10px;">醉后不知天在水，满船清梦压星河</p>
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl google" target="_blank" href="https://plus.google.com/u/0/101401508959857817842" title="google">google</a>
+                            
+                                <a class="fl twitter" target="_blank" href="https://twitter.com/wisen_Liao" title="twitter">twitter</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wisenl" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Wisenl</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a class="mobile-profilepic">
+                
+                    <img lazy-src="/img/avatar-wisenl.jpg" class="js-avatar">
+                
+            </a>
+            <script>
+                var el = document.querySelector('.mobile-profilepic')
+                var timer
+                el.onclick = function() {
+                  el.classList.add('active')
+                  clearTimeout(timer)
+                  timer = setTimeout(function() {
+                    el.classList.remove('active')
+                  }, 1000)
+                }
+            </script>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Wisenl</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Think more, do better</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <p style="padding-bottom: 10px; text-align: center; color: #fff">醉后不知天在水，满船清梦压星河</p>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="google" target="_blank" href="https://plus.google.com/u/0/101401508959857817842" title="google">google</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/wisen_Liao" title="twitter">twitter</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/wisenl" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2017-10-28-generator-学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/28/2017-10-28-generator-学习/" class="article-date">
+      <time datetime="2017-10-27T16:00:00.000Z" itemprop="datePublished">2017-10-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      generator 学习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>对于异步的操作，最常规的写法是回调函数，但是深度回调会出现可怕的<strong>金字塔</strong>。那么，<strong>如何用更好的书写方式来避免金字塔，又或者说，怎么样把异步的代码写得看起来好像同步那样子呢？</strong><br>其中一种解决方案是promise模式，.then一直then下去。ok，从ES6开始，有两个新的特性，叫generator和yield，借助它们，我们能够更优雅地解决这个问题。</p>
+<a id="more"></a>
+<p>###generator和yield简介</p>
+<p>请看下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function* Hello()&#123;</span><br><span class="line"> yield 1;</span><br><span class="line"> yield 2;</span><br><span class="line">&#125;</span><br><span class="line">var hello = Hello();</span><br><span class="line">console.log(hello.next());  // &#123; value:1, done:false &#125;</span><br><span class="line">console.log(hello.next());  // &#123;  value:2, done:false &#125;</span><br><span class="line">console.log(hello.next());  // &#123; value:undefined, done:true &#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>function后面的*号代表这是一个generator函数，而非普通函数，只有在generator函数中才能使用yield，在普通函数中使用yield会报错。</li>
+<li>generator函数的函数是分段的。第一次执行next的时候，程序会执行到第一个yield，然后返回{ value:1, done:false }，表示yield后面返回1，但是函数Hello还没执行完，函数既不会退出，也不会往下执行。</li>
+<li>当再次执行next的时候，从上次中断的地方接着执行，直到下一个yield或者函数结尾。</li>
+</ol>
+<p>正是这种在单个函数内分步执行性质的引入，使得我们能够通过它来完成异步操作的”优化”。</p>
+<p>###假设有这样的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function delay(time, cb)&#123;</span><br><span class="line"> setTimeout(function()&#123;</span><br><span class="line">   cb &amp;&amp; cb()</span><br><span class="line"> &#125;,time);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">delay(200,function()&#123;</span><br><span class="line">  console.log(&apos;200ms done&apos;);</span><br><span class="line">  delay(1000,function()&#123;</span><br><span class="line">    console.log(&apos;1200ms done&apos;);</span><br><span class="line">    delay(500,function()&#123;</span><br><span class="line">       console.log(&apos;finish&apos;);</span><br><span class="line">     &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>###如何优化这个例子呢？</p>
+<p>思路：根据generator的特性，如果我构造一个generator函数包含这三个异步操作，并且把他们各自的callback函数都设置为执行next()函数，这样不就可以实现”看起来是同步”的了吗？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function cl()&#123;</span><br><span class="line">  yieldDelay.next();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function* YieldDelay()&#123;</span><br><span class="line">  yield delay(3200,cl);</span><br><span class="line">  console.log(&apos;3200ms done!&apos;);</span><br><span class="line">  yield delay(4400,cl);</span><br><span class="line">  console.log(&apos;4400ms done!&apos;);</span><br><span class="line">  yield delay(5500,cl);</span><br><span class="line">  console.log(&apos;5500ms done!&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var yieldDelay = YieldDelay();</span><br><span class="line">yieldDelay.next();</span><br></pre></td></tr></table></figure>
+<p>ok。我们已经迈出了一大步了。不过这个写法看着还是有些别扭。</p>
+<ol>
+<li>第一次执行需要我手动出发next()函数。</li>
+<li>回调函数只是简单地执行next()函数，为什么不能把它更加抽象化，以至于不用定义这个回调函数呢？<br>让我们先激动一小会儿，因为你在走tj大神曾经走过的路！</li>
+</ol>
+<p>###进一步优化这段代码</p>
+<p>我们先想想思路，到底有什么办法能够做到呢？最开始的写法之所以会导致金字塔现象，是因为：函数a的执行里面包含执行函数b，所以函数b的执行里面也必须包含执行函数c……如果我们在函数a执行的时候只返回一个function，而这个function接收函数b作为参数。ok，我们先按照这个思路改造一下delay函数和generator函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function delay(time)&#123;</span><br><span class="line">  return function(fn)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">      fn();</span><br><span class="line">    &#125;,time)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">co(function* ()&#123;</span><br><span class="line">  yield delay(4200);</span><br><span class="line">  yield delay(4000);</span><br><span class="line">  yield delay(3000);</span><br><span class="line">&#125;)(function()&#123;</span><br><span class="line">  // 回调函数</span><br><span class="line">  console.log(&apos;all done!&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">function co(GenFunc)&#123;</span><br><span class="line">   return function(cb)&#123;</span><br><span class="line">      //......先略过</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们分析一下：</p>
+<ol>
+<li>co函数接收generator函数作为参数，然后返回一个函数，该函数接收回调函数。</li>
+<li>delay函数接收时间作为参数，返回一个函数，该函数接收回调函数。</li>
+</ol>
+<p>再次理一下思路，我们应该如何编写//……..先略过这一部分的内容呢？<br>yield特性可以让我们分阶段执行，暂停→开始→暂停→开始……**如果我们可以让第一次执行的结果是一个函数，而这个函数接收第二次执行本身作为cb函数，第二次执行的结果也是一个函数，而这个函数接收第三次执行本身作为cb函数……直到结束。好吧，说再多还不如来几行代码！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function co(GenFunc) &#123;</span><br><span class="line">  return function(cb) &#123;</span><br><span class="line">    var gen = GenFunc();  // 第一次执行的时候构造出对象</span><br><span class="line">    next()    // 调用自定义的next方法</span><br><span class="line">    function next() &#123;</span><br><span class="line">      var ret = gen.next();   </span><br><span class="line">     // 在generator函数中走一步，delay函数返回一个函数赋给ret.value</span><br><span class="line">      if (ret.done) &#123;    </span><br><span class="line">        // 判断ret.done是否为真，如果为真，说明generator函数执行完了，该调用回调函数了</span><br><span class="line">        cb &amp;&amp; cb();</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">      // 如果ret.done为假，那么调用上一个返回的函数，并且把next函数传递给它作为回调函数</span><br><span class="line">        ret.value(next);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>嗯，看起来有点绕，多看几遍就好了。<br>至此，你已经山寨了一个极其简单的co库。<br>当然<a href="https://github.com/tj/co" target="_blank" rel="noopener">tj的co库</a>比这个复杂多了，但是原理就是这样，还可以传参数，支持promise</p>
+<p>遗留问题：</p>
+<ol>
+<li>该看看ES6原生支持的promise对象了。</li>
+<li>generator+co这样的模式确实可以优雅地解决金字塔问题，不过ES7中提供async函数，利用它，不需要依赖co库，也一样可以解决这个问题。</li>
+</ol>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/10/28/2017-10-28-generator-学习/">generator 学习</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Wisenl 的个人博客">Wisenl</a></p>
+        <p><span>发布时间:</span>2017年10月28日 - 00时00分</p>
+        <p><span>最后更新:</span>2018年05月06日 - 22时57分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/28/2017-10-28-generator-学习/" title="generator 学习">http://wisenl.github.io/2017/10/28/2017-10-28-generator-学习/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wisenl.github.io/2017/10/28/2017-10-28-generator-学习/　　作者: Wisenl" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Babel, just make sence of it!
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/22/2017-11-12-常规NPM包的创建过程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常规前端项目创建过程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<i type="button" id="tocButton" value="隐藏目录" class="fa fa-th-list"  title="点击按钮隐藏或者显示文章目录"></i>
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#toc").slideUp(320);
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox" style="display: none">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'luuman',
+      repo: 'luuman.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/" title="上一篇: Babel, just make sence of it!">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <!--<a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>-->
+        
+            <a href="/2017/08/22/2017-11-12-常规NPM包的创建过程/" title="下一篇: 常规前端项目创建过程">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/22/2017-11-22-移动端适配总结/">移动端适配总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/">Babel, just make sence of it!</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/2017-10-28-generator-学习/">generator 学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/22/2017-11-12-常规NPM包的创建过程/">常规前端项目创建过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/22/2017-06-22-Learning-Faster/">你可以更高效的学习！</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/06/2017-01-06-Random-Thoughts/">Random Thoughts</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/06/2016-6-6-Welcome-to-Wisenl-Blog/">Welcome to Wisenl Blog</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <canvas id="space" style="position: fixed; left: 0; top: 0; bottom:0; right:0; z-index: -1;" ></canvas>
+      <div class="mobile-wrapper" style="position: fixed; left: 0; top: 0; bottom:0; right:0; z-index: -1;">
+        <ul class="bg-bubbles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <script>
+        (function () {
+          var ctx;
+          var backgroundColor1='rgb(214,228,240)';
+          var backgroundColor2='rgb(134,175,219)';
+          var elCanvas = document.getElementById('space');
+          var display = window.getComputedStyle(elCanvas)['display']
+          if (display === 'none') {
+            return
+          }
+          console.log('1111')
+          function paintCanvas() {
+            var grad = ctx.createLinearGradient(0,1000,1000,1000)
+            grad.addColorStop(0, backgroundColor1)
+            grad.addColorStop(1, backgroundColor2)
+            ctx.fillStyle = grad, ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+          }
+
+          function Particle() {
+            this.x = Math.random() * window.innerWidth, this.y = Math.random() * window.innerHeight, this.vx = -1 + 1 * Math.random(), this.vy = -1 + 1 * Math.random(), this.radius = particleRadius;
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            this.color = {r: color.r, g: color.g, b: color.b}, this.blur = Math.floor(-7 * Math.random() + 9) / 10, this.draw = function () {
+              ctx.fillStyle = "white", ctx.beginPath(), ctx.arc(this.x, this.y, this.radius, 0, Math.PI * this.radius, !1), ctx.fillStyle = "rgb(" + this.color.r + ", " + this.color.g + ", " + this.color.b + ")", ctx.fill()
+            }
+          }
+
+          function draw() {
+            paintCanvas();
+            for (var i = 0; i < particles.length; i++) {
+              var p = particles[i];
+
+              p.draw()
+            }
+            update()
+          }
+
+          function update() {
+            for (var i = 0; i < particles.length; i++) {
+              var p = particles[i];
+              p.x += p.vx, p.y += p.vy, p.x > window.innerWidth + p.radius ? p.x = p.radius : p.x < 0 - p.radius && (p.x = window.innerWidth - p.radius), p.y > window.innerHeight + p.radius ? p.y = p.radius : p.y < 0 - p.radius && (p.y = window.innerHeight - p.radius);
+              for (var j = i + 1; j < particles.length; j++) {
+                var p2 = particles[j];
+                distance(p, p2)
+              }
+            }
+          }
+
+          function distance(p1, p2) {
+            var dist, dx = p1.x - p2.x, dy = p1.y - p2.y, dist = Math.sqrt(dx * dx + dy * dy);
+            if (minDist >= dist) {
+              if (JSON.stringify(p1.color) != JSON.stringify(p2.color)) {
+                ctx.beginPath();
+                var gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+                gradient.addColorStop("0", "rgb(" + p1.color.r + ", " + p1.color.g + ", " + p1.color.b + ")"), gradient.addColorStop("1.0", "rgb(" + p2.color.r + ", " + p2.color.g + ", " + p2.color.b + ")"), ctx.strokeStyle = gradient, ctx.moveTo(p1.x, p1.y), ctx.lineTo(p2.x, p2.y), ctx.lineWidth = 2, ctx.stroke(), ctx.closePath()
+              }
+              var ax = dx / (1e3 * velocity), ay = dy / (1e3 * velocity);
+              p1.vx -= ax, p1.vy -= ay, p2.vx += ax, p2.vy += ay
+            }
+          }
+
+          function animloop() {
+            draw(), requestAnimFrame(animloop)
+          }
+          function init() {
+            elCanvas.width = window.innerWidth
+            elCanvas.height = window.innerHeight
+
+            ctx = document.getElementById('space').getContext("2d"), particleCount = 20, particles = [], particleRadius = 5, minDist = 100, velocity = 10, colors = [
+              {r: 117, g: 125, b: 175},
+              {r: 68, g: 73, b: 102},
+              {r: 248, g: 172, b: 19}
+            ];
+            for (var i = 0; particleCount > i; i++)
+              particles.push(new Particle);
+            animloop();
+          }
+
+          window.onload = function (e) {
+            init();
+          };
+
+
+          window.onresize = function (event) {
+            elCanvas.width = window.innerWidth
+            elCanvas.height = window.innerHeight
+          }
+
+          window.requestAnimFrame = (function () {
+            return  window.requestAnimationFrame ||
+              window.webkitRequestAnimationFrame ||
+              window.mozRequestAnimationFrame ||
+              function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+              };
+          })();
+        }(window));
+      </script>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Wisenl
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">ldct</a> by wisenl
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >总访问人数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读数: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>

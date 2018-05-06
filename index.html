@@ -80,7 +80,7 @@
         
 
         <div id="switch-area" class="switch-area">
-            <p style="padding-bottom: 10px;">最后不知天在水，满船清梦压星河</p>
+            <p style="padding-bottom: 10px;">醉后不知天在水，满船清梦压星河</p>
             <div class="switch-wrap">
                 <section class="switch-part switch-part1">
                     <nav class="header-menu">
@@ -177,7 +177,7 @@
                 <div class="clearfix"></div>
                 </ul>
             </nav>
-            <p style="padding-bottom: 10px; text-align: center; color: #fff">最后不知天在水，满船清梦压星河</p>
+            <p style="padding-bottom: 10px; text-align: center; color: #fff">醉后不知天在水，满船清梦压星河</p>
             <nav class="header-nav">
                 <div class="social">
                     
@@ -194,11 +194,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-2014-09-25-how-to-install-and-config-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2017-11-22-移动端适配总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/24/2014-09-25-how-to-install-and-config-ubuntu/" class="article-date">
-      <time datetime="2018-04-24T08:43:19.692Z" itemprop="datePublished">2018-04-24</time>
+      <a href="/2017/11/22/2017-11-22-移动端适配总结/" class="article-date">
+      <time datetime="2017-11-21T16:00:00.000Z" itemprop="datePublished">2017-11-22</time>
 </a>
     </div>
   
@@ -211,7 +211,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/24/2014-09-25-how-to-install-and-config-ubuntu/">Ubuntu系统的安装与优化</a>
+      <a class="article-title" href="/2017/11/22/2017-11-22-移动端适配总结/">移动端适配总结</a>
     </h1>
   
 
@@ -221,12 +221,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h2 id="安装Ubuntu"><a href="#安装Ubuntu" class="headerlink" title="安装Ubuntu"></a>安装Ubuntu</h2><p><a href="http://jingyan.baidu.com/article/ff42efa9423991c19e22020d.html" target="_blank" rel="noopener">参考教程</a></p>
-<h3 id="1-Win下的准备："><a href="#1-Win下的准备：" class="headerlink" title="1. Win下的准备："></a>1. Win下的准备：</h3><ul>
-<li><a href="http://www.ubuntu.com/download/desktop" target="_blank" rel="noopener">下载.iso文件</a></li>
-<li><a href="http://www.baidu.com/s?&amp;wd=UltraISO" target="_blank" rel="noopener">UltraISO下载</a></li>
-<li><a href="http://jingyan.baidu.com/article/d169e186800f02436711d87b.html" target="_blank" rel="noopener">制作U盘启动器</a></li>
-<li><p>修改BIOS设置为U盘启动：HP电脑开机按F9</p>
+              <h2 id="1-简易方案"><a href="#1-简易方案" class="headerlink" title="1. 简易方案"></a>1. 简易方案</h2><p>直接对html使用：font-size: 625%  。这样的话就能使用rem单位进行开发，1rem=100px。为什么不用1rem=1px 或 1rem = 10px呢？因为Chrome浏览器上有最小字体12px的限制，放以前还能使用 <code>-webkit-text-size-adjust: none</code> 来取消限制，现在已经被废弃了。如果遇到浏览器默认html 的font-size 大小不是 16px，则需要使用媒体查询来列出各个需适配的屏幕，手动设置html的font-size 为px单位</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> only screen and (max-width: <span class="number">750px</span>), only screen and (max-device-width:<span class="number">750px</span>) &#123;</span><br><span class="line">   <span class="selector-tag">html</span> &#123;</span><br><span class="line">   	<span class="attribute">font-size</span>:<span class="number">200px</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> only screen and (max-width: <span class="number">640px</span>), only screen and (max-device-width:<span class="number">640px</span>) &#123;</span><br><span class="line">   <span class="selector-tag">html</span> &#123;</span><br><span class="line">   	<span class="attribute">font-size</span>:<span class="number">170.6px</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> only screen and (max-width: <span class="number">414px</span>), only screen and (max-device-width:<span class="number">414px</span>) &#123;</span><br><span class="line">   <span class="selector-tag">html</span> &#123;</span><br><span class="line">   	<span class="attribute">font-size</span>:<span class="number">110.4px</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> only screen and (max-width: <span class="number">375px</span>), only screen and (max-device-width:<span class="number">375px</span>) &#123;</span><br><span class="line">   <span class="selector-tag">html</span> &#123;</span><br><span class="line">   	<span class="attribute">font-size</span>:<span class="number">100px</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> only screen and (max-width: <span class="number">320px</span>), only screen and (max-device-width:<span class="number">320px</span>) &#123;</span><br><span class="line">   <span class="selector-tag">html</span> &#123;</span><br><span class="line">   	<span class="attribute">font-size</span>:<span class="number">85.3px</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
       
       
@@ -235,19 +231,15 @@
     <div class="article-info article-info-index">
       
       
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/编程/">编程</a>
-    </div>
-
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OS/">OS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/布局/">布局</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/2018/04/24/2014-09-25-how-to-install-and-config-ubuntu/#more">大航海 >></a>
+          <a  href="/2017/11/22/2017-11-22-移动端适配总结/#more">展开阅读 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -266,11 +258,11 @@
 
 
   
-    <article id="post-2015-09-05-periodically-anxiety" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2017-11-20-Babel,-just make-sence-of-it" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/24/2015-09-05-periodically-anxiety/" class="article-date">
-      <time datetime="2018-04-24T08:39:15.183Z" itemprop="datePublished">2018-04-24</time>
+      <a href="/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/" class="article-date">
+      <time datetime="2017-11-19T16:00:00.000Z" itemprop="datePublished">2017-11-20</time>
 </a>
     </div>
   
@@ -283,7 +275,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/24/2015-09-05-periodically-anxiety/">周期性大姨夫：一篇关于梦想和生活的咆哮</a>
+      <a class="article-title" href="/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/">Babel, just make sence of it!</a>
     </h1>
   
 
@@ -293,10 +285,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="周期性大姨夫"><a href="#周期性大姨夫" class="headerlink" title="周期性大姨夫"></a>周期性大姨夫</h1><p>突然又开始莫名地焦虑了，来想想原因和Action吧，传说中的大姨夫又来咯。有点儿为了写东西而写东西了，但是我却想不到什么其他的方式来消除焦虑。</p>
-<p>回顾一下今天的一天，早上八点就起床了，以为自己能利用好时间，可是可是呢？艹！大概就是因为什么也没做吧，一方面觉得自己浪费了时间，一方面觉得大部分时间又花在了维护生活成本上，艹！生活上已经没有了认真，到底该怎么调整到一个好的状态？节约时间还是继续保持热爱去享受生活？我不知道，我把节约了的时间去做了什么？啥成果也没有哇，那我到底有什么动力去争取更多的时间？</p>
-<p>我不服我现在的状态，不服现在的自己，把自己归于何处？置于何地？</p>
-<p>WTF!热情真的会减，不管做什么事情，而我这个人，最缺乏的就是坚持的精神，现在来说我到底有坚持什么事情呢？</p>
+              <blockquote>
+<p>Use next generation JavaScript, today.            —— Babel</p>
+</blockquote>
+<p>Babel，用于编写下一代的 JavaScript 的编译器。据说，它承担着推动 JavaScript 发展的历史重任。它实在太出色了，我们现在就来了解吧！</p>
+<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>2015年10月底，Babel 6 正式发布，整个版本被彻底的重构和重新定位，Babel开始从一个单一的JavaScript 转换器进化为一个JavaScript 工具平台。</p>
+<p>新版本的最大改进，应该是引入了模块化的概念。较之上一个版本Babel 5的一键安装全家桶模式，新版本将Babel的各个功能模块拆分出来，让开发者自行配置以达到更贴合项目需求的目的。但同时为了向下兼容我们这些犯懒开发者， Babel 6 也提供了preset（预设） 这个功能来统一安装一组配置好的包，我们只要选择使用哪个preset 就好了。再者就是提供了一个 .babelrc 文件以供我们对Babel 进行统一配置。</p>
+<p>不过以上都不重要，我们要时刻牢记自己的目标——弄懂就行。只是有一点需要明确：知之，用之！知道它是什么，才能用的更顺手。</p>
           
       
       
@@ -305,19 +300,15 @@
     <div class="article-info article-info-index">
       
       
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/思考/">思考</a>
-    </div>
-
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生活/">生活</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/2018/04/24/2015-09-05-periodically-anxiety/#more">大航海 >></a>
+          <a  href="/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/#more">展开阅读 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -336,11 +327,11 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2017-10-28-generator-学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/24/hello-world/" class="article-date">
-      <time datetime="2018-04-24T07:37:28.290Z" itemprop="datePublished">2018-04-24</time>
+      <a href="/2017/10/28/2017-10-28-generator-学习/" class="article-date">
+      <time datetime="2017-10-27T16:00:00.000Z" itemprop="datePublished">2017-10-28</time>
 </a>
     </div>
   
@@ -353,7 +344,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/24/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/10/28/2017-10-28-generator-学习/">generator 学习</a>
     </h1>
   
 
@@ -363,15 +354,146 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+              <p>对于异步的操作，最常规的写法是回调函数，但是深度回调会出现可怕的<strong>金字塔</strong>。那么，<strong>如何用更好的书写方式来避免金字塔，又或者说，怎么样把异步的代码写得看起来好像同步那样子呢？</strong><br>其中一种解决方案是promise模式，.then一直then下去。ok，从ES6开始，有两个新的特性，叫generator和yield，借助它们，我们能够更优雅地解决这个问题。</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/10/28/2017-10-28-generator-学习/#more">展开阅读 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2017-11-12-常规NPM包的创建过程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/22/2017-11-12-常规NPM包的创建过程/" class="article-date">
+      <time datetime="2017-08-21T16:00:00.000Z" itemprop="datePublished">2017-08-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/22/2017-11-12-常规NPM包的创建过程/">常规前端项目创建过程</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h3 id="常规前端项目的创建过程"><a href="#常规前端项目的创建过程" class="headerlink" title="常规前端项目的创建过程"></a>常规前端项目的创建过程</h3><ol>
+<li>添加 <strong>README</strong> 、<strong>LICENCE</strong>、<strong>.gitignore</strong> 工程三大件<ul>
+<li>创建项目文件，my-prod 。使用 <code>git init</code> 初始化，创建本地仓库。</li>
+<li>在github上新建相同名称的仓库，使用 <code>git remote add origin 地址</code> 命令关联。</li>
+<li>创建 <strong>LICENCE</strong>： 到<a href="https://spdx.org/licenses/" target="_blank" rel="noopener">SPDX License List</a> 或者<a href="https://opensource.org/licenses/alphabetical" target="_blank" rel="noopener">Open Source Initiative</a>，下载相应协议的模板，修改时间和作者等内容</li>
+<li>创建 <strong>README</strong>：添加项目说明，使用方法，相关链接等</li>
+<li>创建 <strong>.gitignore</strong>：指定项目中不需要传到远程仓库中的内容。可以去<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">github gitignore</a> 下载一个最相近的模板然后改改，也可以去<a href="https://www.gitignore.io/" target="_blank" rel="noopener">gitignore.io</a>生成一个。</li>
+</ul>
+</li>
+</ol>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端构建/">前端构建</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/22/2017-11-12-常规NPM包的创建过程/#more">展开阅读 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2017-06-22-Learning-Faster" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/22/2017-06-22-Learning-Faster/" class="article-date">
+      <time datetime="2017-06-21T16:00:00.000Z" itemprop="datePublished">2017-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/22/2017-06-22-Learning-Faster/">你可以更高效的学习！</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>谈论高效学习前，有一个重要的因素不能忽略，那就是学习环境。</p>
+<p>学生时期能养成高强度学习的一个重要因素，是当时的思想认知还处于相对局限的范畴，没有过多其它奇奇怪怪的思想干扰我们。那个时期的我们的世界观相当狭窄，我们对外界的认识主要来自于教科书以及父母老师，这些知识经验是经过他人二次加工灌输给我们的。 我们的世界非常纯粹，或者说，非常封闭。故而可知，学生时期高效的学习环境是一个外在的被动式学习环境。</p>
+<p>但是，当我们进入大学——一个绝对开放、自由的环境，一扇新世界的大门便想我们打开了，加在我们思想上的枷锁被打破，我们可以尽情去做想做的任何事情，或奋进，或堕落。然而在此之后，我们都将面临一个新的问题：如何重拾学生时期高强度、高效率的学习习惯。须知，我们都不再是以前那个纯粹的自我，每天我们面临各种选择各种诱惑。每个崭新的一天，可以选择休闲，也可以选择工作学习。这时我们如果能抵制休闲的诱惑，为自己创造一个高效的工作学习环境，那么我们则能在未来与同龄人的竞争中积攒筹码。而这个由我们创造的学习环境，则是一个主动式的学习环境，是我们评估当前可选项做出取舍后的选择。</p>
+<p>一个主动式学习环境，一个被动式学习环境，都是人生必然要经历的阶段。只是当下我们已然走出校门，应该对后者多一些思考。</p>
+<p>被动式学习环境下，我们首要的关注点在于方法；而主动式学习环境我们首先要解决的问题是自律，其次才是方法。给自己定下些许条框，以保证学习环境的清净是高效学习的前提。</p>
 
       
       
@@ -382,6 +504,150 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思想荒岛/">思想荒岛</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/方法论/">方法论</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2017-01-06-Random-Thoughts" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/06/2017-01-06-Random-Thoughts/" class="article-date">
+      <time datetime="2017-01-05T16:00:00.000Z" itemprop="datePublished">2017-01-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/06/2017-01-06-Random-Thoughts/">Random Thoughts</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <blockquote>
+<p>“It’s hard to think for me !”</p>
+</blockquote>
+<p>这个世界发生的一切，像是一场浩劫过后的狂欢。我缩在角落神情黯然，仿佛不属于幸存者中的一员。</p>
+<p>财富自由和时间自由的相对性。</p>
+<p>体验自由，创作自由，行为自由，思想自由，身体自由，感官自由。</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思想荒岛/">思想荒岛</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/01/06/2017-01-06-Random-Thoughts/#more">展开阅读 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-2016-6-6-Welcome-to-Wisenl-Blog" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/06/2016-6-6-Welcome-to-Wisenl-Blog/" class="article-date">
+      <time datetime="2016-06-05T16:00:00.000Z" itemprop="datePublished">2016-06-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/06/2016-6-6-Welcome-to-Wisenl-Blog/">Welcome to Wisenl Blog</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <blockquote>
+<p>“OK, Lets Begin Now !”</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">emmm。。。</span><br><span class="line">最近（四月）把博客从 Jekyll 上迁到 Hexo 上了，为什么呢。。。</span><br><span class="line">大概是好玩吧？</span><br><span class="line">反正也没写几篇文章呢！</span><br><span class="line">哎~~</span><br></pre></td></tr></table></figure>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我一直都认为，写作是一件很酷的事情，而能够长久地坚持写出有意思的东西则是一件伟大的事情。我这人懒散，自己不怎么写东西，却对写字抱有一种信仰。</p>
+<p>毕业即失业的窘境迫使我重新思考未来，互联网行业大红大紫让我跌入其中。我像匹饿狼四处搜寻我想了解的信息，看着各大网络平台的大牛侃侃而谈，无论技术还是资讯都信手拈来。我觉得，他们真酷！</p>
+<p>我也要成为他们。</p>
+<p>他们说，要提升就要总结，就要以输出倒逼输入，就要写。</p>
+<p>于是我就决定写，不论写的是什么，不论写的好与坏。</p>
+<p>便有了这个博客。</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日常/">日常</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/06/06/2016-6-6-Welcome-to-Wisenl-Blog/#more">展开阅读 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

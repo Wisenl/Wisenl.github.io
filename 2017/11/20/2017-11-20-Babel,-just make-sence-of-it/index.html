@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Babel, just make sence of it! | Wisenl Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Use next generation JavaScript, today.            —— Babel  Babel，用于编写下一代的 JavaScript 的编译器。据说，它承担着推动 JavaScript 发展的历史重任。它实在太出色了，我们现在就来了解吧！ 历史2015年10月底，Babel 6 正式发布，整个版本被彻底的重构和重新定位，Babel开始从一个单一的JavaSc">
+<meta name="keywords" content="技术,工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Babel, just make sence of it!">
+<meta property="og:url" content="http://wisenl.github.io/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/index.html">
+<meta property="og:site_name" content="Wisenl Blog">
+<meta property="og:description" content="Use next generation JavaScript, today.            —— Babel  Babel，用于编写下一代的 JavaScript 的编译器。据说，它承担着推动 JavaScript 发展的历史重任。它实在太出色了，我们现在就来了解吧！ 历史2015年10月底，Babel 6 正式发布，整个版本被彻底的重构和重新定位，Babel开始从一个单一的JavaSc">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-05-06T14:46:06.237Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Babel, just make sence of it!">
+<meta name="twitter:description" content="Use next generation JavaScript, today.            —— Babel  Babel，用于编写下一代的 JavaScript 的编译器。据说，它承担着推动 JavaScript 发展的历史重任。它实在太出色了，我们现在就来了解吧！ 历史2015年10月底，Babel 6 正式发布，整个版本被彻底的重构和重新定位，Babel开始从一个单一的JavaSc">
+  
+    <link rel="alternative" href="/atom.xml" title="Wisenl Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <!--<div class="overlay" style="background: #f3d6a9; opacity: 1">-->
+    <!--<div style="height: 250px; background: #caf5af;"></div>-->
+<!--</div>-->
+<div class="overlay" style="background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%); opacity: 1">
+    <!--<div style="height: 250px; background: #caf5af;"></div>-->
+</div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar-wisenl.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">Wisenl</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Think more, do better</p>
+        
+        
+        
+
+        <div id="switch-area" class="switch-area">
+            <p style="padding-bottom: 10px;">醉后不知天在水，满船清梦压星河</p>
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl google" target="_blank" href="https://plus.google.com/u/0/101401508959857817842" title="google">google</a>
+                            
+                                <a class="fl twitter" target="_blank" href="https://twitter.com/wisen_Liao" title="twitter">twitter</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/wisenl" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Wisenl</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a class="mobile-profilepic">
+                
+                    <img lazy-src="/img/avatar-wisenl.jpg" class="js-avatar">
+                
+            </a>
+            <script>
+                var el = document.querySelector('.mobile-profilepic')
+                var timer
+                el.onclick = function() {
+                  el.classList.add('active')
+                  clearTimeout(timer)
+                  timer = setTimeout(function() {
+                    el.classList.remove('active')
+                  }, 1000)
+                }
+            </script>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Wisenl</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Think more, do better</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <p style="padding-bottom: 10px; text-align: center; color: #fff">醉后不知天在水，满船清梦压星河</p>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="google" target="_blank" href="https://plus.google.com/u/0/101401508959857817842" title="google">google</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/wisen_Liao" title="twitter">twitter</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/wisenl" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-2017-11-20-Babel,-just make-sence-of-it" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/" class="article-date">
+      <time datetime="2017-11-19T16:00:00.000Z" itemprop="datePublished">2017-11-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Babel, just make sence of it!
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <blockquote>
+<p>Use next generation JavaScript, today.            —— Babel</p>
+</blockquote>
+<p>Babel，用于编写下一代的 JavaScript 的编译器。据说，它承担着推动 JavaScript 发展的历史重任。它实在太出色了，我们现在就来了解吧！</p>
+<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>2015年10月底，Babel 6 正式发布，整个版本被彻底的重构和重新定位，Babel开始从一个单一的JavaScript 转换器进化为一个JavaScript 工具平台。</p>
+<p>新版本的最大改进，应该是引入了模块化的概念。较之上一个版本Babel 5的一键安装全家桶模式，新版本将Babel的各个功能模块拆分出来，让开发者自行配置以达到更贴合项目需求的目的。但同时为了向下兼容我们这些犯懒开发者， Babel 6 也提供了preset（预设） 这个功能来统一安装一组配置好的包，我们只要选择使用哪个preset 就好了。再者就是提供了一个 .babelrc 文件以供我们对Babel 进行统一配置。</p>
+<p>不过以上都不重要，我们要时刻牢记自己的目标——弄懂就行。只是有一点需要明确：知之，用之！知道它是什么，才能用的更顺手。</p>
+<a id="more"></a>
+<h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>打开 GitHub 上的 Babel 项目进入 packages 文件，你会发现一串要下翻好一会才到底的列表，这些差不多就是Babel 所有的功能和插件包，也是我们需要关心的所有内容。</p>
+<p>我们可以把这串列表划分成不同的类型来了解。</p>
+<ol>
+<li>babel-cli</li>
+<li>babel-core</li>
+<li>babel-generator</li>
+<li>babel-helper-xxxx ( babel-helpers )</li>
+<li>babel-node</li>
+<li>babel-plugin-xxxx</li>
+<li>babel-polyfill</li>
+<li>babel-preset-xxxx</li>
+<li>babel-register</li>
+<li>babel-runtime</li>
+<li>babel-standalone</li>
+<li>babel-template</li>
+<li>babel-traverse</li>
+<li>babel-types</li>
+<li>babylon</li>
+</ol>
+<p>有点多，再分类一次，顺便重新排下序 ( 官方README )：</p>
+<ul>
+<li>Core：babel-core, babylon, babel-traverse, generator</li>
+<li>Plugins : babel-plugin-xxxx</li>
+<li>Preset： babel-preset</li>
+<li>Other：babel-cli, Babel-types, babel-polyfill, babel-runtime, babel-register, babel-template, babel-helpers</li>
+</ul>
+<p>OK，逐项介绍</p>
+<h3 id="Core"><a href="#Core" class="headerlink" title="Core"></a>Core</h3><p>babel-core 就是Babel编译器。</p>
+<p>首先我们需要知道编译过程：第一步，语法解析，生成AST（abstract syntax tree，抽象语法树）。第二步，遍历AST同时转译。第三步，反转AST，生成代码。</p>
+<p>流程如下：</p>
+<p>需要编译的代码 -&gt; 通过 babylon 解析 -&gt; 得到AST  -&gt; plugin 使用 traverse的 遍历功能进行转译 -&gt; 更改后AST -&gt; 通过generator反转 -&gt; 得到编译后代码</p>
+<p>Babel-core 自己并没有去做具体的编译工作，而是通过引用babel-babylon、babel-traverse、babel-generator这三个包来完成（当然还有各种 plugin）。babel-core 集成这些功能，向外提供相关接口从而完成编译任务。</p>
+<h3 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h3><p>像这种 babel-plugin-xxx-xxx 类型的包，都统称为 Plugin，他们的作用就是提供给babel 不同的转译功能，如果不使用这些插件，那么在第二阶段AST树就不会发生变化，回头还是给你生成原有的代码。对于这些 plugin ，我们根据它们的命名就能猜到他们的用途。比如：</p>
+<p>Babel-plugin-check-constants 包就是用来实现  const 语法的插件。原理很简单，就是如果你为一个 通过const 声明的变量再次声明，它就会报错。</p>
+<p>Babel-plugin-proposal-async-generator-functions , 实现 async generator 的转译功能。这种proposal 前缀的是还在提议阶段的语法功能，等待加入标准中。</p>
+<p>babel-plugin-syntax-jsx，让JSX语法能够正确的解析。</p>
+<p>Babel-plugin-transform-arrow-functions, 将ES6的箭头函数便以为ES5 的普通 function</p>
+<p>有一个值得一提的包 babel-plugin-transform-runtime, 具体功能后面再谈。</p>
+<h3 id="Presets"><a href="#Presets" class="headerlink" title="Presets"></a>Presets</h3><p>如上，plugin 插件好几十个难道我用的时候去一个一个配置安装？别怕，便捷不够，Presets来凑！</p>
+<p>官方提供了 env、 es2015、es2016、es2017、flow、react、stage-x、typescript 等豪华套餐供我们享用，只需安装相应的 preset ， 就能使用其中包含的插件集。</p>
+<ul>
+<li><strong>Babel-preset-es20xx</strong></li>
+</ul>
+<p>这些插件集里面组装好了相应ES版本中需要的功能。但是需要注意，ES2016 和 ES2017 的preset 只负责编译该ES版本所新增的特性，即便你安装了es2017，还是要安装es2015。es20xx的preset即将被官方deprecated!</p>
+<ul>
+<li><strong>babel-preset-env</strong></li>
+</ul>
+<p>相较于babel-preset-es20xx, 官方更推荐我们使用babel-preset-env, 它可以根据当前配置的运行环境来添加需要用到的plugins（以及polyfill）。俗话说，一代版本一代神。不同的浏览器版本所实现的ES特性是不同的，设想这样一个场景：</p>
+<p>我有一个老版本的浏览器需要作为兼容目标，它可能不支持 async 功能，但是支持 let const 等功能，那我只要使用babel-preset-env 这个preset 同时指定一下我这个目标浏览器的版本，babel就会根据该浏览器的ES标准自动补上 async 语法的plugin 垫片而不是一股脑把所有不需要的plugin装上。”Babel preset that automatically determines the Babel plugins you need based on your supported environments. Uses compat-table.”  这是官方描述</p>
+<p>这么厉害，它是怎么实现的呢？</p>
+<p>首先获取到第三方统计的浏览器兼容数据 <a href="https://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">compat-table</a> ，然后在ES特性和Babel插件间建立一种映射关系，最后使用 <a href="https://github.com/ai/browserslist" target="_blank" rel="noopener">browserslist</a> 来指定所需支持的环境 （如 &gt;1%, last 2 versions），如果不指定的话，默认包含所有带年份的preset ( es20xx)。当然，在node环境中使用也可以指定node版本。</p>
+<ul>
+<li><strong>Babel-preset-react</strong> 和 <strong>babel-preset-flow</strong></li>
+</ul>
+<p>Babel-preset-flow ,只包含了一个 transform-flow-strip-types 插件，用来转译flow.js的语法功能。</p>
+<p>babel-preset-react 包含了babel-preset-flow 和 转译jsx语法的相关插件。它用来抽取flow类型并转化JSX使其通过createElement 调用。</p>
+<ul>
+<li><strong>babel-preset-state-x</strong></li>
+</ul>
+<p>提议阶段的新特性需要使用到的插件集，用的不多~</p>
+<h3 id="其它packages"><a href="#其它packages" class="headerlink" title="其它packages"></a>其它packages</h3><ul>
+<li><p><strong>babel-cli</strong></p>
+<p>安装了它，我们就能在终端使用命令行来运行babel：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">babel es6File.js --out-file newEs5File.js</span><br></pre></td></tr></table></figure>
+<p>给你文档 —&gt; <a href="https://babeljs.cn/docs/usage/cli" target="_blank" rel="noopener">如何使用CLI工具</a></p>
+</li>
+<li><p><strong>babel-node</strong></p>
+<p>babel-node 是 babel 提供给 node 环境使用的工具，主要用来在开发时方便执行一些脚本，用它就能执行一些node下不支持的ES6语法。如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node_modules/.bin/babel-node --presets env</span><br><span class="line"><span class="meta">&gt;</span>3**3</span><br><span class="line">27</span><br></pre></td></tr></table></figure>
+<p>node（我测试的是6.11.3版本） 环境是不支持这样的幂运算的，但是用babel-node 就可以执行了~</p>
+<p>安装babel-cli就能使用该babel-node命令，不需要单独安装，相当于是个内部包，生产环境下也用不到。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>babel-runtime</strong></p>
+<p>首先我们要知道Babel实现编译的功能主要分为两种（常称为babel 和 polyfill）：一种是通过babel-core 实现的语法编译功能，如箭头函数；另一种是内建的新对象及其API，如Set，Map，object.asign() ，generator等，这些都是通过babel-runtime中的core-js和 regenerator 来实现的。而babel-runtime 只是对这两个库进行了引入导出。</p>
+<p>core-js 和 regenerator 把polyfill都集合起来，可是用的时候未必会全都用到，不利于优化。于是就有了babel-plugin-transform-runtime，它会分析AST中是否引用到babel-runtime 中的polyfill，引用了就在此模块中插入需要的功能代码。可见transform-runtime依赖于babel-runtime，所以一般我们都是使用 transform-runtime 而不是用babel-runtime。</p>
+</li>
+<li><p><strong>babel-polyfill</strong></p>
+<p>babel-runtime 固然好，可是它的作用域受到了限制。官方是推荐在生产环境中引入 babel-polyfill 来模拟一个完整的 ES6+ 的环境，它在项目中一次引入所有需要的polyfill来满足生产环境需求</p>
+<p>这里引用下 <a href="https://github.com/sunyongjian/blog" target="_blank" rel="noopener">sunyongjian</a> 对这两者的总结</p>
+<blockquote>
+<ul>
+<li>babel-polyfill 是当前环境注入这些 es6+ 标准的垫片，好处是引用一次，不再担心兼容，而且它就是全局下的包，代码的任何地方都可以使用。缺点也很明显，它可能会污染原生的一些方法而把原生的方法重写。如果当前项目已经有一个 polyfill 的包了，那你只能保留其一。而且一次性引入这么一个包，会大大增加体积。如果你只是用几个特性，就没必要了，如果你是开发较大的应用，而且会频繁使用新特性并考虑兼容，那就直接引入吧。</li>
+<li>transform-runtime 是利用 plugin 自动识别并替换代码中的新特性，你不需要再引入，只需要装好 babel-runtime 和 配好 plugin 就可以了。好处是按需替换，检测到你需要哪个，就引入哪个 polyfill，如果只用了一部分，打包完的文件体积对比 babel-polyfill 会小很多。而且 transform-runtime 不会污染原生的对象，方法，也不会对其他 polyfill 产生影响。所以 transform-runtime 的方式更适合开发工具包，库，一方面是体积够小，另一方面是用户（开发者）不会因为引用了我们的工具，包而污染了全局的原生方法，产生副作用，还是应该留给用户自己去选择。缺点是随着应用的增大，相同的 polyfill 每个模块都要做重复的工作（检测，替换），虽然 polyfill 只是引用，编译效率不够高效。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>babel-register</strong></p>
+<p>这个就是babel-node 实现它脚本编译功能的包。如果js文件中引入 babel-register，node 在执行该文件的时候，会用babel编译它所require的文件（但是该js文件不会被编译），而且不需要输出文件就能实时编译。</p>
+</li>
+</ul>
+<h2 id="babelrc-配置文件"><a href="#babelrc-配置文件" class="headerlink" title=".babelrc 配置文件"></a>.babelrc 配置文件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    [<span class="string">"env"</span>,&#123;</span><br><span class="line">      <span class="string">"target"</span>:&#123;    <span class="comment">// 支持的环境</span></span><br><span class="line">        <span class="string">"browers"</span>:[<span class="string">"last 2 versions"</span>, <span class="string">"IE &gt;= 9"</span>]	<span class="comment">// ie9以上，以及主流浏览器的最近两个版本</span></span><br><span class="line">      	<span class="string">"node"</span>: <span class="string">"current"</span>     <span class="comment">// 当前版本node环境</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"modules"</span>: <span class="literal">false</span>,     <span class="comment">// 设置ES6模块转译的格式</span></span><br><span class="line">      <span class="string">"loose"</span>:<span class="literal">true</span></span><br><span class="line">    &#125;]</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    [<span class="string">"transform-runtime"</span>, &#123;  <span class="comment">// 启用插件</span></span><br><span class="line">      <span class="string">"helpers"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="string">"polyfill"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="string">"regenerator"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="string">"moduleName"</span>: <span class="string">"babel-runtime"</span></span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/">Babel, just make sence of it!</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Wisenl 的个人博客">Wisenl</a></p>
+        <p><span>发布时间:</span>2017年11月20日 - 00时00分</p>
+        <p><span>最后更新:</span>2018年05月06日 - 22时46分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/" title="Babel, just make sence of it!">http://wisenl.github.io/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://wisenl.github.io/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/　　作者: Wisenl" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/11/22/2017-11-22-移动端适配总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          移动端适配总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/28/2017-10-28-generator-学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">generator 学习</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#历史"><span class="toc-number">1.</span> <span class="toc-text">历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目"><span class="toc-number">2.</span> <span class="toc-text">项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Core"><span class="toc-number">2.1.</span> <span class="toc-text">Core</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Plugin"><span class="toc-number">2.2.</span> <span class="toc-text">Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Presets"><span class="toc-number">2.3.</span> <span class="toc-text">Presets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它packages"><span class="toc-number">2.4.</span> <span class="toc-text">其它packages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#babelrc-配置文件"><span class="toc-number">3.</span> <span class="toc-text">.babelrc 配置文件</span></a></li></ol>
+</div>
+<i type="button" id="tocButton" value="隐藏目录" class="fa fa-th-list"  title="点击按钮隐藏或者显示文章目录"></i>
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#toc").slideUp(320);
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox" style="display: none">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'luuman',
+      repo: 'luuman.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/11/22/2017-11-22-移动端适配总结/" title="上一篇: 移动端适配总结">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <!--<a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>-->
+        
+            <a href="/2017/10/28/2017-10-28-generator-学习/" title="下一篇: generator 学习">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/22/2017-11-22-移动端适配总结/">移动端适配总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/20/2017-11-20-Babel,-just make-sence-of-it/">Babel, just make sence of it!</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/2017-10-28-generator-学习/">generator 学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/22/2017-11-12-常规NPM包的创建过程/">常规前端项目创建过程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/22/2017-06-22-Learning-Faster/">你可以更高效的学习！</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/06/2017-01-06-Random-Thoughts/">Random Thoughts</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/06/2016-6-6-Welcome-to-Wisenl-Blog/">Welcome to Wisenl Blog</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <canvas id="space" style="position: fixed; left: 0; top: 0; bottom:0; right:0; z-index: -1;" ></canvas>
+      <div class="mobile-wrapper" style="position: fixed; left: 0; top: 0; bottom:0; right:0; z-index: -1;">
+        <ul class="bg-bubbles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <script>
+        (function () {
+          var ctx;
+          var backgroundColor1='rgb(214,228,240)';
+          var backgroundColor2='rgb(134,175,219)';
+          var elCanvas = document.getElementById('space');
+          var display = window.getComputedStyle(elCanvas)['display']
+          if (display === 'none') {
+            return
+          }
+          console.log('1111')
+          function paintCanvas() {
+            var grad = ctx.createLinearGradient(0,1000,1000,1000)
+            grad.addColorStop(0, backgroundColor1)
+            grad.addColorStop(1, backgroundColor2)
+            ctx.fillStyle = grad, ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+          }
+
+          function Particle() {
+            this.x = Math.random() * window.innerWidth, this.y = Math.random() * window.innerHeight, this.vx = -1 + 1 * Math.random(), this.vy = -1 + 1 * Math.random(), this.radius = particleRadius;
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            this.color = {r: color.r, g: color.g, b: color.b}, this.blur = Math.floor(-7 * Math.random() + 9) / 10, this.draw = function () {
+              ctx.fillStyle = "white", ctx.beginPath(), ctx.arc(this.x, this.y, this.radius, 0, Math.PI * this.radius, !1), ctx.fillStyle = "rgb(" + this.color.r + ", " + this.color.g + ", " + this.color.b + ")", ctx.fill()
+            }
+          }
+
+          function draw() {
+            paintCanvas();
+            for (var i = 0; i < particles.length; i++) {
+              var p = particles[i];
+
+              p.draw()
+            }
+            update()
+          }
+
+          function update() {
+            for (var i = 0; i < particles.length; i++) {
+              var p = particles[i];
+              p.x += p.vx, p.y += p.vy, p.x > window.innerWidth + p.radius ? p.x = p.radius : p.x < 0 - p.radius && (p.x = window.innerWidth - p.radius), p.y > window.innerHeight + p.radius ? p.y = p.radius : p.y < 0 - p.radius && (p.y = window.innerHeight - p.radius);
+              for (var j = i + 1; j < particles.length; j++) {
+                var p2 = particles[j];
+                distance(p, p2)
+              }
+            }
+          }
+
+          function distance(p1, p2) {
+            var dist, dx = p1.x - p2.x, dy = p1.y - p2.y, dist = Math.sqrt(dx * dx + dy * dy);
+            if (minDist >= dist) {
+              if (JSON.stringify(p1.color) != JSON.stringify(p2.color)) {
+                ctx.beginPath();
+                var gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+                gradient.addColorStop("0", "rgb(" + p1.color.r + ", " + p1.color.g + ", " + p1.color.b + ")"), gradient.addColorStop("1.0", "rgb(" + p2.color.r + ", " + p2.color.g + ", " + p2.color.b + ")"), ctx.strokeStyle = gradient, ctx.moveTo(p1.x, p1.y), ctx.lineTo(p2.x, p2.y), ctx.lineWidth = 2, ctx.stroke(), ctx.closePath()
+              }
+              var ax = dx / (1e3 * velocity), ay = dy / (1e3 * velocity);
+              p1.vx -= ax, p1.vy -= ay, p2.vx += ax, p2.vy += ay
+            }
+          }
+
+          function animloop() {
+            draw(), requestAnimFrame(animloop)
+          }
+          function init() {
+            elCanvas.width = window.innerWidth
+            elCanvas.height = window.innerHeight
+
+            ctx = document.getElementById('space').getContext("2d"), particleCount = 20, particles = [], particleRadius = 5, minDist = 100, velocity = 10, colors = [
+              {r: 117, g: 125, b: 175},
+              {r: 68, g: 73, b: 102},
+              {r: 248, g: 172, b: 19}
+            ];
+            for (var i = 0; particleCount > i; i++)
+              particles.push(new Particle);
+            animloop();
+          }
+
+          window.onload = function (e) {
+            init();
+          };
+
+
+          window.onresize = function (event) {
+            elCanvas.width = window.innerWidth
+            elCanvas.height = window.innerHeight
+          }
+
+          window.requestAnimFrame = (function () {
+            return  window.requestAnimationFrame ||
+              window.webkitRequestAnimationFrame ||
+              window.mozRequestAnimationFrame ||
+              function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+              };
+          })();
+        }(window));
+      </script>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Wisenl
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">ldct</a> by wisenl
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >总访问人数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读数: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
